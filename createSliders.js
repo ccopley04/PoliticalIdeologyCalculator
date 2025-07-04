@@ -56,7 +56,24 @@ createSliderElement(
 createSliderElement(
   "Foreign Policy",
   "Isolationism",
-  "Interventionism",
+  "Imperialism",
   "foreignPolicy"
 );
-createSliderElement("New", "Left", "Right", "testID");
+createSliderElement(
+  "Government Control",
+  "Anarchism",
+  "Totalitarianism ",
+  "governmentPolicy"
+);
+createSliderElement(
+  "Social Structure",
+  "Progressivism",
+  "Traditionalism",
+  "socialPolicy"
+);
+createSliderElement(
+  "Technological Progress",
+  "Primitivism",
+  "Transhumanism",
+  "technologyPolicy"
+);
