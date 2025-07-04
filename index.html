@@ -8,44 +8,7 @@
   </head>
   <body>
     <h1>Political Ideology Calculator</h1>
-    <div class="all-sliders">
-      <div class="container">
-        <div class="center">
-          <h2>Economic Policy</h2>
-        </div>
-        <div class="sliderContainer">
-          <span class="slider-label left">Communalism</span>
-          <span class="slider-label right">Market Liberalism</span>
-          <input
-            type="range"
-            min="-100"
-            max="100"
-            value="0"
-            class="slider"
-            id="economicPolicy"
-          />
-        </div>
-      </div>
-      <div class="container">
-        <div class="center">
-          <h2>Foreign Policy</h2>
-        </div>
-        <div class="sliderContainer">
-          <span class="slider-label left">Isolationism</span>
-          <span class="slider-label right">Interventionism</span>
-          <input
-            type="range"
-            min="-100"
-            max="100"
-            value="0"
-            class="slider"
-            id="foreignPolicy"
-          />
-        </div>
-      </div>
-    </div>
-
-    <div id="practice"></div>
-    <script src="practice.js"></script>
+    <div id="all-sliders"></div>
+    <script src="createSliders.js"></script>
   </body>
 </html>
