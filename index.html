@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Political Ideology Calculator</title>
     <link rel="stylesheet" href="slider.css" />
+    <style>
+      .calculateButton {
+        height: 100px;
+        width: 100px;
+        margin-top: 25px;
+      }
+    </style>
   </head>
   <body>
     <h1>Political Ideology Calculator</h1>
     <div id="all-sliders"></div>
-    <script src="createSliders.js"></script>
+    <button id="calculate" class="calculateButton">Calculate!</button>
+    <script type="module" src="createSliders.js"></script>
+    <script type="module" src="calculateButton.js"></script>
   </body>
 </html>
