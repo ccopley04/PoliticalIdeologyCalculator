@@ -1,3 +1,5 @@
+let score = {};
+
 function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   let newComponent = document.createElement("div");
   newComponent.className = "container";
@@ -28,8 +30,10 @@ function createSliderElement(title, leftTagText, rightTagText, sliderId) {
     class: "slider",
     id: sliderId,
   };
+
+  score[sliderId] = newSlider.value === "" ? "0" : newSlider.value;
   newSlider.oninput = () => {
-    console.log(title + ": " + newSlider.value);
+    score[sliderId] = newSlider.value === "" ? "0" : newSlider.value;
   };
 
   for (const key in sliderAttributes) {
@@ -72,8 +76,12 @@ createSliderElement(
   "socialPolicy"
 );
 createSliderElement(
-  "Technological Progress",
-  "Primitivism",
+  "Technological Advances",
   "Transhumanism",
-  "technologyPolicy"
+  "Primitivism",
+  "techPolicy"
 );
+
+export function getScore() {
+  return score;
+}
