@@ -77,8 +77,8 @@ createSliderElement(
 );
 createSliderElement(
   "Technological Advances",
-  "Transhumanism",
   "Primitivism",
+  "Transhumanism",
   "techPolicy"
 );
 
