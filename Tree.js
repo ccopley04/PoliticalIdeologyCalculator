@@ -95,13 +95,13 @@ class Tree {
       if (medianValue > goalValue) {
         searchRecursive(node.left);
 
-        if (goalValue + minDistance > medianValue) {
+        if (goalValue - medianValue < minDistance) {
           searchRecursive(node.right);
         }
       } else {
         searchRecursive(node.right);
 
-        if (goalValue + minDistance < medianValue) {
+        if (goalValue - medianValue < minDistance) {
           searchRecursive(node.left);
         }
       }
@@ -115,13 +115,11 @@ class Tree {
 const myTree = new Tree(2);
 
 myTree.buildTree([
-  new Point([3, 5], ""),
-  new Point([3, 4], ""),
-  new Point([5, 7], ""),
-  new Point([6, 8], ""),
-  new Point([1, 6], ""),
-  new Point([-1, 5], ""),
-  new Point([4, 3], ""),
-  new Point([7, 9], ""),
+  new Point([5, 4], ""),
+  new Point([2, 6], ""),
+  new Point([13, 3], ""),
+  new Point([3, 1], ""),
+  new Point([10, 2], ""),
+  new Point([8, 7], ""),
 ]);
-console.log(myTree.findClosest(new Point([-1, 10], "")));
+console.log(myTree.findClosest(new Point([9, 4], "")));
