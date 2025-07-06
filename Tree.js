@@ -1,21 +1,4 @@
-class Point {
-  coords = [];
-  name = "";
-
-  constructor(values, name, dim) {
-    this.coords = values;
-    this.name = name;
-    this.dim = values.length;
-  }
-
-  distanceTo(otherCoords) {
-    let sum = 0;
-    for (let i = 0; i < this.dim; i++) {
-      sum += Math.pow(otherCoords[i] - this.coords[i], 2);
-    }
-    return Math.sqrt(sum);
-  }
-}
+import Point from "./Point.js";
 
 class Node {
   constructor(point, dimension, left = null, right = null) {
@@ -75,21 +58,21 @@ class Tree {
     }
 
     let bestNode = this.root;
-    let minDistance = goal.distanceTo(this.root.point.coords);
+    let minDistance = this.root.point.distanceTo(goal);
 
     const searchRecursive = (node) => {
       if (!node) {
         return;
       }
 
-      const newDistance = goal.distanceTo(node.point.coords);
+      const newDistance = node.point.distanceTo(goal);
       if (minDistance > newDistance) {
         minDistance = newDistance;
         bestNode = node;
       }
 
       const axis = node.dimension;
-      let goalValue = goal.coords[axis];
+      let goalValue = goal[axis];
       let medianValue = node.point.coords[axis];
 
       if (medianValue > goalValue) {
@@ -112,14 +95,4 @@ class Tree {
   }
 }
 
-const myTree = new Tree(2);
-
-myTree.buildTree([
-  new Point([5, 4], ""),
-  new Point([2, 6], ""),
-  new Point([13, 3], ""),
-  new Point([3, 1], ""),
-  new Point([10, 2], ""),
-  new Point([8, 7], ""),
-]);
-console.log(myTree.findClosest(new Point([9, 4], "")));
+export default Tree;
