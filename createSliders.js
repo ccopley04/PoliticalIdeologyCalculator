@@ -83,5 +83,11 @@ createSliderElement(
 );
 
 export function getScore() {
-  return score;
+  return [
+    score.economicPolicy,
+    score.foreignPolicy,
+    score.governmentPolicy,
+    score.socialPolicy,
+    score.techPolicy,
+  ];
 }
