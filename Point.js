@@ -1,11 +1,13 @@
 class Point {
-  coords = [];
+  coords;
   name = "";
+  description = "";
 
-  constructor(values, name, dim) {
+  constructor(values, name, description) {
     this.coords = values;
     this.name = name;
     this.dim = values.length;
+    this.description = description;
   }
 
   distanceTo(otherCoords) {
