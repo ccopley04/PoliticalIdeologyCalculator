@@ -12,9 +12,14 @@ class Point {
 
   distanceTo(otherCoords) {
     let sum = 0;
-    for (let i = 0; i < this.dim; i++) {
-      sum += Math.pow(otherCoords[i] - this.coords[i], 2);
+    if (Array.isArray(this.coords)) {
+      for (let i = 0; i < this.dim; i++) {
+        sum += Math.pow(otherCoords[i] - this.coords[i], 2);
+      }
+    } else {
+      sum += Math.pow(otherCoords - this.coords, 2);
     }
+
     return Math.sqrt(sum);
   }
 }

@@ -1,5 +1,5 @@
 import { getScore } from "./createSliders.js";
-import { searchIdeologies } from "./Ideologies.js";
+import { searchIdeologies } from "./Ideologies/EncompassingIdeologies.js";
 
 const calculateButton = document.getElementById("calculate");
 
