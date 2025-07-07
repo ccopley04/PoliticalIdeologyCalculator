@@ -20,6 +20,15 @@ const ideologies = {
     tech: -100,
     description: "",
   },
+  "Traditionalist Post-Communism": {
+    name: "Traditionalist Post-Communism",
+    economic: -100,
+    foreign: 100,
+    government: 100,
+    social: 100,
+    tech: 100,
+    description: "",
+  },
 };
 
 const myTree = new Tree(5);
@@ -42,4 +51,6 @@ for (let key in ideologies) {
 
 myTree.buildTree(allPoints);
 
-console.log(myTree.findClosest([20, -100, -100, 0, -100]));
+export function searchIdeologies(values) {
+  return myTree.findClosest(values);
+}
