@@ -40,15 +40,40 @@ class BinaryTree {
       allPoints.slice(allPoints.indexOf(this.root.point) + 1)
     );
   }
+
+  findClosest(goal) {
+    if (!this.root) {
+      return null;
+    }
+
+    let bestNode = this.root;
+    let minDistance = this.root.point.distanceTo(goal);
+
+    const searchRecursive = (node) => {
+      if (!node) {
+        return;
+      }
+
+      const newDistance = node.point.distanceTo(goal);
+      if (minDistance > newDistance) {
+        minDistance = newDistance;
+        bestNode = node;
+      }
+
+      const axis = node.dimension;
+      let goalValue = goal;
+      let medianValue = node.point.coords;
+
+      if (medianValue > goalValue) {
+        searchRecursive(node.left);
+      } else {
+        searchRecursive(node.right);
+      }
+    };
+
+    searchRecursive(this.root);
+    return bestNode.point;
+  }
 }
 
-const myTree = new BinaryTree("");
-myTree.buildTree([
-  new Point(1, "", ""),
-  new Point(2, "", ""),
-  new Point(4, "", ""),
-  new Point(-1, "", ""),
-  new Point(-10, "", ""),
-]);
-
-console.log(myTree);
+export default BinaryTree;
