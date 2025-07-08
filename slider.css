@@ -2,11 +2,11 @@
   width: 500px;
 }
 .sliderContainer {
-  display: flex;
   align-items: center;
   margin: auto;
   height: 50px;
   position: relative;
+  display: flex;
 }
 .container {
   width: 730px;

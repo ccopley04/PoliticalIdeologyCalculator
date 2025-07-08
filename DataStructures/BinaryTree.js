@@ -9,8 +9,8 @@ class Node {
 }
 
 class BinaryTree {
-  constructor(title) {
-    this.root = new Node(new Point(0, title + "Centrism"));
+  constructor(title, description) {
+    this.root = new Node(new Point(0, title + "Centrism", description));
   }
 
   buildTree(allPoints) {

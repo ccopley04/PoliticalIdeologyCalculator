@@ -46,6 +46,7 @@ function createSliderElement(title, leftTagText, rightTagText, sliderId) {
 
   newHeading.appendChild(headingName);
   newComponent.appendChild(newHeading);
+
   newComponent.appendChild(newSliderContainer);
 
   document.getElementById("all-sliders").appendChild(newComponent);
