@@ -11,13 +11,26 @@
         width: 100px;
         margin-top: 25px;
       }
+      .result-tag {
+        padding-bottom: 100px;
+        height: 20px;
+      }
     </style>
   </head>
   <body>
     <script type="module" src="./Ideologies/EncompassingIdeologies.js"></script>
     <script type="module" src="./Ideologies/EconomicIdeologies.js"></script>
     <h1>Political Ideology Calculator</h1>
-    <div id="all-sliders"></div>
+    <div style="display: flex">
+      <div id="all-sliders"></div>
+      <div style="padding-top: 30px; padding-left: 50px">
+        <div class="result-tag" id="economicResult"></div>
+        <div class="result-tag">PlaceHolder</div>
+        <div class="result-tag">PlaceHolder</div>
+        <div class="result-tag">PlaceHolder</div>
+        <div class="result-tag">PlaceHolder</div>
+      </div>
+    </div>
     <button id="calculate" class="calculateButton">Calculate!</button>
     <script type="module" src="createSliders.js"></script>
     <script type="module" src="calculateButton.js"></script>
