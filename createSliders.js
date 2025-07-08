@@ -54,7 +54,7 @@ function createSliderElement(title, leftTagText, rightTagText, sliderId) {
 createSliderElement(
   "Economic Policy",
   "Communalism",
-  "Market Liberalism",
+  "Laissez-faire Capitalism",
   "economicPolicy"
 );
 createSliderElement(
