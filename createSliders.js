@@ -34,6 +34,7 @@ function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   score[sliderId] = newSlider.value === "" ? "0" : newSlider.value;
   newSlider.oninput = () => {
     score[sliderId] = newSlider.value === "" ? "0" : newSlider.value;
+    document.getElementById(sliderId + "Result").textContent = "";
   };
 
   for (const key in sliderAttributes) {
@@ -60,7 +61,7 @@ createSliderElement(
 );
 createSliderElement(
   "Foreign Policy",
-  "Isolationism",
+  "Autarkism",
   "Imperialism",
   "foreignPolicy"
 );
