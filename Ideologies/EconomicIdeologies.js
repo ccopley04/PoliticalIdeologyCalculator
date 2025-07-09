@@ -24,7 +24,7 @@ const myTree = new BinaryTree(
   "Economic ",
   "This ideology does not hold strong beliefs in either direction.\n " +
     "It reflects a perfect balance between independent consumers having private control over the market versus a distributed economy.\n " +
-    "Many would claim that this ideology does not count as a real ideology since it makes no assertions about society should function."
+    "Many would claim that this ideology does not count as a real ideology since it makes no assertions about how society should function."
 );
 
 const allPoints = [];
