@@ -1,4 +1,12 @@
+import { searchEconomicIdeologies } from "./Ideologies/EconomicIdeologies.js";
+import { searchForeignIdeologies } from "./Ideologies/ForeignIdeologies.js";
+import { searchGovernmentIdeologies } from "./Ideologies/GovernmentIdeologies.js";
+
 let score = {};
+
+const economicResult = document.getElementById("economicPolicyResult");
+const foreignResult = document.getElementById("foreignPolicyResult");
+const governmentResult = document.getElementById("governmentPolicyResult");
 
 function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   let newComponent = document.createElement("div");
@@ -34,7 +42,7 @@ function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   score[sliderId] = newSlider.value === "" ? "0" : newSlider.value;
   newSlider.oninput = () => {
     score[sliderId] = newSlider.value === "" ? "0" : newSlider.value;
-    document.getElementById(sliderId + "Result").textContent = "";
+    updateIdeologies();
   };
 
   for (const key in sliderAttributes) {
@@ -52,6 +60,20 @@ function createSliderElement(title, leftTagText, rightTagText, sliderId) {
 
   document.getElementById("all-sliders").appendChild(newComponent);
 }
+
+function updateIdeologies() {
+  let currResult = searchEconomicIdeologies(getScore()[0]);
+  economicResult.textContent = currResult.name + ": " + currResult.description;
+
+  currResult = searchForeignIdeologies(getScore()[1]);
+  foreignResult.textContent = currResult.name + ": " + currResult.description;
+
+  currResult = searchGovernmentIdeologies(getScore()[2]);
+  governmentResult.textContent =
+    currResult.name + ": " + currResult.description;
+}
+
+updateIdeologies();
 
 createSliderElement(
   "Economic Policy",
