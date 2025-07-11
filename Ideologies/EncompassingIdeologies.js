@@ -1,5 +1,5 @@
-import Tree from "../DataStructures/Tree.js";
-import Point from "../DataStructures/Point.js";
+import Tree from "KDTree";
+import Point from "Point";
 
 const ideologies = {
   "Globalist Cyber-Fascism": {

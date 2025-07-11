@@ -1,5 +1,5 @@
-import BinaryTree from "../DataStructures/BinaryTree.js";
-import Point from "../DataStructures/Point.js";
+import BinaryTree from "BinaryTree";
+import Point from "Point";
 
 const ideologies = {
   Isolationism: {
@@ -39,7 +39,6 @@ for (let key in ideologies) {
 }
 
 myTree.buildTree(allPoints);
-console.log(myTree);
 
 export function searchForeignIdeologies(values) {
   return myTree.findClosest(values);
