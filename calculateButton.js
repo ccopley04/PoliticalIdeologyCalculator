@@ -1,8 +1,3 @@
-import { getScore } from "./createSliders.js";
-import { searchIdeologies } from "./Ideologies/EncompassingIdeologies.js";
-import { searchEconomicIdeologies } from "./Ideologies/EconomicIdeologies.js";
-import { searchForeignIdeologies } from "./Ideologies/ForeignIdeologies.js";
-import { searchGovernmentIdeologies } from "./Ideologies/GovernmentIdeologies.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const calculateButton = document.getElementById("calculate");

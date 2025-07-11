@@ -1,5 +1,5 @@
-import BinaryTree from "../DataStructures/BinaryTree.js";
-import Point from "../DataStructures/Point.js";
+import BinaryTree from "BinaryTree";
+import Point from "Point";
 
 const ideologies = {
   "Lasssz-faire Capatilism": {

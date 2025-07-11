@@ -21,14 +21,16 @@
     <script type="importmap">
       {
         "imports": {
-          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          "@google/generative-ai": "https://esm.run/@google/generative-ai",
+          "BinaryTree": "./DataStructures/BinaryTree.js",
+          "KDTree": "./DataStructures/Tree.js",
+          "Point": "./DataStructures/Point.js",
+          "ForeignIdeologies": "./Ideologies/ForeignIdeologies.js",
+          "EconomicIdeologies": "./Ideologies/EconomicIdeologies.js",
+          "GovernmentIdeologies": "./Ideologies/GovernmentIdeologies.js"
         }
       }
     </script>
-    <script type="module" src="./Ideologies/EncompassingIdeologies.js"></script>
-    <script type="module" src="./Ideologies/ForeignIdeologies.js"></script>
-    <script type="module" src="./Ideologies/EconomicIdeologies.js"></script>
-    <script type="module" src="./Ideologies/GovernmentIdeologies.js"></script>
     <h1>Political Ideology Calculator</h1>
     <div style="display: flex">
       <div id="all-sliders"></div>
@@ -43,8 +45,5 @@
     <button id="calculate" class="calculateButton">Calculate!</button>
     <script type="module" src="createSliders.js"></script>
     <script type="module" src="calculateButton.js"></script>
-    <script type="module" src="./DataStructures/Tree.js"></script>
-    <script type="module" src="./DataStructures/Point.js"></script>
-    <script type="module" src="./DataStructures/BinaryTree.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
-import { searchEconomicIdeologies } from "./Ideologies/EconomicIdeologies.js";
-import { searchForeignIdeologies } from "./Ideologies/ForeignIdeologies.js";
-import { searchGovernmentIdeologies } from "./Ideologies/GovernmentIdeologies.js";
+import { searchEconomicIdeologies } from "EconomicIdeologies";
+import { searchForeignIdeologies } from "ForeignIdeologies";
+import { searchGovernmentIdeologies } from "GovernmentIdeologies";
 
 let score = {};
 
