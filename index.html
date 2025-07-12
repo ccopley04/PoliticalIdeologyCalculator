@@ -8,7 +8,7 @@
     <style>
       .calculateButton {
         height: 100px;
-        width: 100px;
+        width: 80px;
         margin-top: 25px;
       }
       .result-tag {
@@ -42,7 +42,10 @@
         <div class="result-tag">PlaceHolder</div>
       </div>
     </div>
-    <button id="calculate" class="calculateButton">Calculate!</button>
+    <div style="display:flex">
+      <button id="calculate" class="calculateButton">Calculate!</button>
+      <div style="margin: 25px" id="aiOutput"><div>
+    </div>
     <script type="module" src="createSliders.js"></script>
     <script type="module" src="calculateButton.js"></script>
   </body>
