@@ -2,6 +2,7 @@ import { searchEconomicIdeologies } from "EconomicIdeologies";
 import { searchForeignIdeologies } from "ForeignIdeologies";
 import { searchGovernmentIdeologies } from "GovernmentIdeologies";
 import { searchSocialIdeologies } from "SocialIdeologies";
+import { searchTechIdeologies } from "TechIdeologies";
 
 let score = {};
 
@@ -9,6 +10,7 @@ const economicResult = document.getElementById("economicPolicyResult");
 const foreignResult = document.getElementById("foreignPolicyResult");
 const governmentResult = document.getElementById("governmentPolicyResult");
 const socialResult = document.getElementById("socialPolicyResult");
+const techResult = document.getElementById("techPolicyResult");
 
 function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   let newComponent = document.createElement("div");
@@ -76,6 +78,9 @@ function updateIdeologies() {
 
   currResult = searchSocialIdeologies(getScore()[3]);
   socialResult.textContent = currResult.name + ": " + currResult.description;
+
+  currResult = searchTechIdeologies(getScore()[4]);
+  techResult.textContent = currResult.name + ": " + currResult.description;
 }
 
 updateIdeologies();
