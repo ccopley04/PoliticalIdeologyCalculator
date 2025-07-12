@@ -1,12 +1,14 @@
 import { searchEconomicIdeologies } from "EconomicIdeologies";
 import { searchForeignIdeologies } from "ForeignIdeologies";
 import { searchGovernmentIdeologies } from "GovernmentIdeologies";
+import { searchSocialIdeologies } from "SocialIdeologies";
 
 let score = {};
 
 const economicResult = document.getElementById("economicPolicyResult");
 const foreignResult = document.getElementById("foreignPolicyResult");
 const governmentResult = document.getElementById("governmentPolicyResult");
+const socialResult = document.getElementById("socialPolicyResult");
 
 function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   let newComponent = document.createElement("div");
@@ -71,6 +73,9 @@ function updateIdeologies() {
   currResult = searchGovernmentIdeologies(getScore()[2]);
   governmentResult.textContent =
     currResult.name + ": " + currResult.description;
+
+  currResult = searchSocialIdeologies(getScore()[3]);
+  socialResult.textContent = currResult.name + ": " + currResult.description;
 }
 
 updateIdeologies();
@@ -95,7 +100,7 @@ createSliderElement(
 );
 createSliderElement(
   "Social Structure",
-  "Progressivism",
+  "Social Progressivism",
   "Traditionalism",
   "socialPolicy"
 );

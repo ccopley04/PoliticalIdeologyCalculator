@@ -3,6 +3,7 @@ import { getScore } from "./createSliders.js";
 import { searchEconomicIdeologies } from "EconomicIdeologies";
 import { searchForeignIdeologies } from "ForeignIdeologies";
 import { searchGovernmentIdeologies } from "GovernmentIdeologies";
+import { searchSocialIdeologies } from "SocialIdeologies";
 
 const calculateButton = document.getElementById("calculate");
 const aiOutput = document.getElementById("aiOutput");
@@ -21,10 +22,12 @@ function updatePrompt() {
     searchEconomicIdeologies(getScore()[0]).name +
     ", " +
     searchForeignIdeologies(getScore()[1]).name +
+    ", " +
+    searchSocialIdeologies(getScore()[3]).name +
     ", and " +
     searchGovernmentIdeologies(getScore()[2]).name +
     ". Do not mention any percieved " +
-    "inconsistenties, get creative to include all three completely seriously. Additionally give it a three word name that includes a prefix on the first word and mimics " +
+    "inconsistenties, get creative to include all four completely seriously. Additionally give it a three word name that includes a prefix on the first word and mimics " +
     "common ideologies. Make sure the name ends in the suffix -ism. Please give a description for this made up ideology with one sentence per entered ideology." +
     "Make sure the sentences are connected and do not reference this prompt, only the description." +
     "Include each ideology in some way. Reference each of thier ideas, without their name." +
@@ -42,5 +45,6 @@ async function generateContent() {
 calculateButton.addEventListener("click", () => {
   aiOutput.textContent = "Loading...";
   updatePrompt();
+  console.log(prompt);
   generateContent();
 });
