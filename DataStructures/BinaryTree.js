@@ -9,10 +9,12 @@ class Node {
 }
 
 class BinaryTree {
+  //Define the root node which will be at 0 and be a form of Centrism
   constructor(title, description) {
     this.root = new Node(new Point(0, title + "Centrism", description));
   }
 
+  //Recursively build the entire tree of nodes
   buildTree(allPoints) {
     const recursive = (currPoints) => {
       if (currPoints.length === 0) {
@@ -41,6 +43,7 @@ class BinaryTree {
     );
   }
 
+  //Returns the Point that is calculated to be the closest to the provided Goal
   findClosest(goal) {
     if (!this.root) {
       return null;

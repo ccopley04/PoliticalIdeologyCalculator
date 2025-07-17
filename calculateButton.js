@@ -9,14 +9,16 @@ import { searchTechIdeologies } from "TechIdeologies";
 const calculateButton = document.getElementById("calculate");
 const aiOutput = document.getElementById("aiOutput");
 
-// WARNING: Storing API keys directly in client-side code is INSECURE for production.
+//This key is a free key supplied by Google for testing purposes.
+//It only accepts calls from my domain and has limited usage
+//It only exists for showcasing a prototype, not for actual deployment
 const API_KEY = "AIzaSyB61E3oz5jQwABufrXxc4klURp7mOA2AVQ";
 
 const genAI = new GoogleGenerativeAI(API_KEY);
-const tempPrompt = "Hi There!";
 
 let prompt = "";
 
+//Define the prompt according to the scores of the axes
 function updatePrompt() {
   prompt =
     "Please return an ideology that includes aspects of " +
@@ -38,6 +40,7 @@ function updatePrompt() {
     " Do this in the format of {Ideology Name}: {Description}.";
 }
 
+//Call the Gemini API to generate an all-encompassing ideology
 async function generateContent() {
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   const result = await model.generateContent(prompt);
@@ -45,6 +48,7 @@ async function generateContent() {
   aiOutput.textContent = response.text();
 }
 
+//When the calculate button is clicked, call the AI API
 calculateButton.addEventListener("click", () => {
   aiOutput.textContent = "Loading...";
   updatePrompt();
