@@ -10,6 +10,7 @@ class Point {
     this.description = description;
   }
 
+  //Return the distance from this point to the provided coordinate
   distanceTo(otherCoords) {
     let sum = 0;
     if (Array.isArray(this.coords)) {
