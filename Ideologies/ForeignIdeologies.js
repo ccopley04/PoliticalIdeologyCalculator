@@ -2,7 +2,7 @@ import BinaryTree from "BinaryTree";
 import Point from "Point";
 
 const ideologies = {
-  Isolationism: {
+  Autarkism: {
     name: "Autarkism",
     score: -100,
     description:
@@ -17,6 +17,22 @@ const ideologies = {
       "This ideology pursues a global position categorized by international power and authority through direct or indirect intervention. " +
       "This ideology pushes a country to pursue its interests by acquiring any necessary resources, whether by ignoring or subverting the sovereignty of other nations. " +
       "This can be through military conquest that expands the state’s landmass or, in other cases, through aggressive economic policy that prioritizes the nation’s leverage.",
+  },
+  Interventionism: {
+    name: "Interventionism",
+    score: 40,
+    description:
+      "This ideology advocates for a foreign policy that directly interacts with international conflicts in order to amass influence or resources. " +
+      " Despite not being directly involved with said conflict, a country with this ideology may justify military or economic action to promote their interest, or the interest of their allies. " +
+      "The exact motivations vary but this ideology often does not promote actual expansion of territories, instead seeks to gather resources or protect against perceived international threats.",
+  },
+  Isolationism: {
+    name: "Isolationism",
+    score: -70,
+    description:
+      "This ideology opposes foreign conflicts and skirmishes in favor of taking a stance of neutrality. " +
+      "This ideology transcends militaristic non-interventionism and includes broader political and economic policies that promote self sufficiency and cultural preservation. " +
+      "This ideology deters any active military conflicts, unless self defensive, and attempts to limit, but not eliminate, foreign trade and allyship.",
   },
 };
 

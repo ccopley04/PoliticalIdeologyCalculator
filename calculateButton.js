@@ -5,6 +5,7 @@ import { searchForeignIdeologies } from "ForeignIdeologies";
 import { searchGovernmentIdeologies } from "GovernmentIdeologies";
 import { searchSocialIdeologies } from "SocialIdeologies";
 import { searchTechIdeologies } from "TechIdeologies";
+import { inStorage, writeToStorage } from "./storage.js";
 
 const calculateButton = document.getElementById("calculate");
 const aiOutput = document.getElementById("aiOutput");
@@ -45,13 +46,35 @@ async function generateContent() {
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   const result = await model.generateContent(prompt);
   const response = await result.response;
-  aiOutput.textContent = response.text();
+  return response.text();
 }
 
 //When the calculate button is clicked, call the AI API
 calculateButton.addEventListener("click", () => {
   aiOutput.textContent = "Loading...";
+  let key =
+    searchEconomicIdeologies(getScore()[0]).name +
+    "" +
+    searchForeignIdeologies(getScore()[1]).name +
+    "" +
+    searchTechIdeologies(getScore()[4]).name +
+    "" +
+    searchSocialIdeologies(getScore()[3]).name +
+    "" +
+    searchGovernmentIdeologies(getScore()[2]).name;
   updatePrompt();
   console.log(prompt);
-  generateContent();
+
+  if (inStorage(key) === "none") {
+    generateContent().then((result) => {
+      aiOutput.textContent = result;
+      writeToStorage(key, aiOutput.textContent);
+    });
+  } else {
+    setTimeout(() => {
+      aiOutput.textContent = inStorage(key);
+    }, 1500);
+  }
+
+  console.log(localStorage);
 });
