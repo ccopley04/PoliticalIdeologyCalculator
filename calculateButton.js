@@ -18,6 +18,7 @@ const API_KEY = "AIzaSyB61E3oz5jQwABufrXxc4klURp7mOA2AVQ";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 let prompt = "";
+const errormsg = "Error occured while fetching content. Please try again later";
 
 //Define the prompt according to the scores of the axes
 function updatePrompt() {
@@ -43,10 +44,14 @@ function updatePrompt() {
 
 //Call the Gemini API to generate an all-encompassing ideology
 async function generateContent() {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  return response.text();
+  try {
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    return response.text();
+  } catch (error) {
+    return errormsg;
+  }
 }
 
 //When the calculate button is clicked, call the AI API
@@ -63,13 +68,19 @@ calculateButton.addEventListener("click", () => {
     "" +
     searchGovernmentIdeologies(getScore()[2]).name;
   updatePrompt();
-  console.log(prompt);
 
   if (inStorage(key) === "none") {
-    generateContent().then((result) => {
-      aiOutput.textContent = result;
-      writeToStorage(key, aiOutput.textContent);
-    });
+    try {
+      generateContent().then((result) => {
+        aiOutput.textContent = result;
+        if (result != errormsg) {
+          writeToStorage(key, aiOutput.textContent);
+        }
+      });
+    } catch (error) {
+      aiOutput.textContent =
+        "Error occured while fetching content. Please try again later.";
+    }
   } else {
     setTimeout(() => {
       aiOutput.textContent = inStorage(key);
