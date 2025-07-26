@@ -13,8 +13,7 @@ const aiOutput = document.getElementById("aiOutput");
 //This key is a free key supplied by Google for testing purposes.
 //It only accepts calls from my domain and has limited usage
 //It only exists for showcasing a prototype, not for actual deployment
-const API_KEY = "AIzaSyB61E3oz5jQwABufrXxc4klURp7mOA2AVQ";
-
+const API_KEY = process.env.API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 let prompt = "";
