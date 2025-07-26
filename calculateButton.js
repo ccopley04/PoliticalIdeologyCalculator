@@ -6,6 +6,7 @@ import { searchGovernmentIdeologies } from "GovernmentIdeologies";
 import { searchSocialIdeologies } from "SocialIdeologies";
 import { searchTechIdeologies } from "TechIdeologies";
 import { inStorage, writeToStorage } from "./storage.js";
+import { API_KEY_SECRET } from "./secretHolder.js";
 
 const calculateButton = document.getElementById("calculate");
 const aiOutput = document.getElementById("aiOutput");
@@ -13,7 +14,7 @@ const aiOutput = document.getElementById("aiOutput");
 //This key is a free key supplied by Google for testing purposes.
 //It only accepts calls from my domain and has limited usage
 //It only exists for showcasing a prototype, not for actual deployment
-const API_KEY = process.env.API_KEY;
+const API_KEY = API_KEY_SECRET;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 let prompt = "";
