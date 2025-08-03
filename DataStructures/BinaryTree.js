@@ -1,5 +1,6 @@
 import Point from "./Point.js";
 
+//This class represents one node of the structure and points to a larger and smaller node
 class Node {
   constructor(point, left = null, right = null) {
     this.point = point;
@@ -8,6 +9,8 @@ class Node {
   }
 }
 
+//This class represents a sorted binary tree
+//It starts at 0 and each node sorts itself with left being smaller and right being larger
 class BinaryTree {
   //Define the root node which will be at 0 and be a form of Centrism
   constructor(title, description) {

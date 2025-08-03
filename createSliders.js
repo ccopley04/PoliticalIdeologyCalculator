@@ -4,14 +4,17 @@ import { searchGovernmentIdeologies } from "GovernmentIdeologies";
 import { searchSocialIdeologies } from "SocialIdeologies";
 import { searchTechIdeologies } from "TechIdeologies";
 
+//Dictionary to hold all ideology values
 let score = {};
 
+//Retrieve needed HTML elements
 const economicResult = document.getElementById("economicPolicyResult");
 const foreignResult = document.getElementById("foreignPolicyResult");
 const governmentResult = document.getElementById("governmentPolicyResult");
 const socialResult = document.getElementById("socialPolicyResult");
 const techResult = document.getElementById("techPolicyResult");
 
+//Returns void but appends a new slider to the HTML document
 function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   let newComponent = document.createElement("div");
   newComponent.className = "container";
@@ -65,6 +68,7 @@ function createSliderElement(title, leftTagText, rightTagText, sliderId) {
   document.getElementById("all-sliders").appendChild(newComponent);
 }
 
+//Retrieve the values of all sliders and save them to score
 function updateIdeologies() {
   let currResult = searchEconomicIdeologies(getScore()[0]);
   economicResult.textContent = currResult.name + ": " + currResult.description;
@@ -85,6 +89,7 @@ function updateIdeologies() {
 
 updateIdeologies();
 
+//Create five sliders
 createSliderElement(
   "Economic Policy",
   "Communalism",
@@ -116,6 +121,7 @@ createSliderElement(
   "techPolicy"
 );
 
+//Return a list of the of the five ideology scores
 export function getScore() {
   return [
     score.economicPolicy,
