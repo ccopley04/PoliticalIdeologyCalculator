@@ -1,3 +1,4 @@
+//This class represents a single ideology with a numeric value, name, and description
 class Point {
   coords;
   name = "";

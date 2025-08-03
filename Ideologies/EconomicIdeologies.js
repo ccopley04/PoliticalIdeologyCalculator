@@ -1,6 +1,7 @@
 import BinaryTree from "BinaryTree";
 import Point from "Point";
 
+//Define a dictionary with the current ideologies
 const ideologies = {
   "Lasssz-faire Capatilism": {
     name: "Laissez-faire Capitalism",
@@ -20,6 +21,7 @@ const ideologies = {
   },
 };
 
+//Define the starting Node
 const myTree = new BinaryTree(
   "Economic ",
   "This ideology does not hold strong beliefs in either direction.\n " +
@@ -27,6 +29,7 @@ const myTree = new BinaryTree(
     "Many would claim that this ideology does not count as a real ideology since it makes no assertions about how society should function."
 );
 
+//Create a list of Points from the defined dictionary
 const allPoints = [];
 for (let key in ideologies) {
   allPoints.push(
@@ -38,8 +41,10 @@ for (let key in ideologies) {
   );
 }
 
+//Create the binary tree
 myTree.buildTree(allPoints);
 
+//Returns the closest ideology based on this binary tree
 export function searchEconomicIdeologies(values) {
   return myTree.findClosest(values);
 }

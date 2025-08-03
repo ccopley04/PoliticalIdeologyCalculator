@@ -7,6 +7,7 @@ import { searchSocialIdeologies } from "SocialIdeologies";
 import { searchTechIdeologies } from "TechIdeologies";
 import { inStorage, writeToStorage } from "./storage.js";
 
+//Retrieve needed HTML elements
 const calculateButton = document.getElementById("calculate");
 const aiOutput = document.getElementById("aiOutput");
 
@@ -68,6 +69,8 @@ calculateButton.addEventListener("click", () => {
     searchGovernmentIdeologies(getScore()[2]).name;
   updatePrompt();
 
+  //If local storage has a prewritten answer, retrieve it
+  //Otherwise, call the Gemini API
   if (inStorage(key) === "none") {
     try {
       generateContent().then((result) => {
@@ -85,6 +88,4 @@ calculateButton.addEventListener("click", () => {
       aiOutput.textContent = inStorage(key);
     }, 1500);
   }
-
-  console.log(localStorage);
 });

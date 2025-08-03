@@ -1,6 +1,7 @@
 import BinaryTree from "BinaryTree";
 import Point from "Point";
 
+//Define a dictionary with the current ideologies
 const ideologies = {
   Totalitarianism: {
     name: "Totalitarianism",
@@ -20,6 +21,7 @@ const ideologies = {
   },
 };
 
+//Define the starting Node
 const myTree = new BinaryTree(
   "Government ",
   "This ideology does not lean in either direction and instead opts for a blend of both ideas.\n " +
@@ -27,6 +29,7 @@ const myTree = new BinaryTree(
     "This lukewarm ideology is barely an ideology since it has no strong opinions on how society should function."
 );
 
+//Create a list of Points from the defined dictionary
 const allPoints = [];
 for (let key in ideologies) {
   allPoints.push(
@@ -38,8 +41,10 @@ for (let key in ideologies) {
   );
 }
 
+//Create the binary tree
 myTree.buildTree(allPoints);
 
+//Returns the closest ideology based on this binary tree
 export function searchGovernmentIdeologies(values) {
   return myTree.findClosest(values);
 }

@@ -1,6 +1,7 @@
 import BinaryTree from "BinaryTree";
 import Point from "Point";
 
+//Define a dictionary with the current ideologies
 const ideologies = {
   "Social Progressivism": {
     name: "Social Progressivism",
@@ -20,6 +21,7 @@ const ideologies = {
   },
 };
 
+//Define the starting Node
 const myTree = new BinaryTree(
   "Social ",
   "This ideology lies in the exact center of social equality.\n " +
@@ -27,6 +29,7 @@ const myTree = new BinaryTree(
     "This ideology simply does not concern itself with social issues that may develop in society."
 );
 
+//Create a list of Points from the defined dictionary
 const allPoints = [];
 for (let key in ideologies) {
   allPoints.push(
@@ -38,8 +41,10 @@ for (let key in ideologies) {
   );
 }
 
+//Create the binary tree
 myTree.buildTree(allPoints);
 
+//Returns the closest ideology based on this binary tree
 export function searchSocialIdeologies(values) {
   return myTree.findClosest(values);
 }
