@@ -11,12 +11,6 @@ import { inStorage, writeToStorage } from "./storage.js";
 const calculateButton = document.getElementById("calculate");
 const aiOutput = document.getElementById("aiOutput");
 
-//This key is a free key supplied by Google for testing purposes.
-//It only accepts calls from my domain and has limited usage
-//It only exists for showcasing a prototype, not for actual deployment
-const API_KEY = "AIzaSyB61E3oz5jQwABufrXxc4klURp7mOA2AVQ";
-const genAI = new GoogleGenerativeAI(API_KEY);
-
 let prompt = "";
 const errormsg = "Error occured while fetching content. Please try again later";
 
@@ -41,6 +35,10 @@ function updatePrompt() {
     " Start the description with 'This ideology' and end each sentence with a new line." +
     " Do this in the format of {Ideology Name}: {Description}.";
 }
+//This key is a free key supplied by Google for testing purposes.
+//It only accepts calls from my domain and has limited usage
+//It only exists for showcasing a prototype, not for actual deployment
+const genAI = new GoogleGenerativeAI("AIzaSyB61E3oz5jQwABufrXxc4klURp7mOA2AVQ");
 
 //Call the Gemini API to generate an all-encompassing ideology
 async function generateContent() {
@@ -80,8 +78,7 @@ calculateButton.addEventListener("click", () => {
         }
       });
     } catch (error) {
-      aiOutput.textContent =
-        "Error occured while fetching content. Please try again later.";
+      aiOutput.textContent = errormsg;
     }
   } else {
     setTimeout(() => {
