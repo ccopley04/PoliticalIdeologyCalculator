@@ -38,7 +38,7 @@ function updatePrompt() {
 //This key is a free key supplied by Google for testing purposes.
 //It only accepts calls from my domain and has limited usage
 //It only exists for showcasing a prototype, not for actual deployment
-const genAI = new GoogleGenerativeAI("AIzaSyB61E3oz5jQwABufrXxc4klURp7mOA2AVQ");
+const genAI = new GoogleGenerativeAI("");
 
 //Call the Gemini API to generate an all-encompassing ideology
 async function generateContent() {
